@@ -9,13 +9,57 @@
     font-weight: 100;
 }
 
+.text {
+    color: darkslategrey;
+    font-size: 18px;
+}
+
+@media (max-width: 1199px) {
+    .text {
+        color: darkblue;
+    }
+}
+/* Планшеты (меньше 992px) */
+@media (max-width: 991px) {
+    .text {
+        color: blue;
+    }
+}
+/* Мобильные в альбомной ориентации (меньше 768px) */
+@media (max-width: 767px) {
+    .text {
+        color: royalblue;
+    }
+}
+/* Мобильные (меньше 576px) */
+@media (max-width: 575px) {
+    .text {
+        color: dodgerblue;
+        font-size: 16px;
+    }
+}
+/* Очень маленькие экраны (меньше 400px) */
+@media (max-width: 399px) {
+    .text {
+        color: lightblue;
+        font-size: 14px;
+    }
+}
+
+
 html {
     scroll-behavior: smooth;
 }
 
 * > h2 {
     font-size: 40px;
-    font-weight: 500;
+    font-weight: 900;
+}
+
+.section__header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 * > h3 {
@@ -27,6 +71,9 @@ html {
 .header {
     position: relative;
     height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
 
 .header * {
@@ -34,46 +81,53 @@ html {
 }
 
 .header__logo {
-    position: absolute;
-    top: 15px;
-    left: 15px;
+    grid-column: span 2;
+    grid-row: 1;
+    position: relative;
     z-index: 10;
-    height: 50px;
-    width: auto;
 }
 
-.header__shopping-сart {
+.header__logo-image {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-    height: 30px;
+
+    top: 30px;
+    left: 40%;
+    height: 40px;
     width: auto;
 }
 
 .header__banner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row: span 5;
     overflow: hidden;
+    position: relative;
+}
+
+.header__banner-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
 }
 
 /* Главный заголовок */
 .header__title {
     position: absolute;
-    top: 60%;
-    right: 50%;
+    left: 20%;
+    grid-row: 3;
+    grid-column: span 2;
     z-index: 5;
     display: flex;
     align-items: left;
     flex-direction: column;
     gap: 10px;
+    font-size: 54px;
 }
 
 .header__title-vertical {
-    font-size: 54px;
+    
     font-weight: 900;
     letter-spacing: 0px;
     text-transform: uppercase;
@@ -82,7 +136,6 @@ html {
 }
 
 .header__title-main {
-    font-size: 54px;
     font-weight: 900;
     text-transform: uppercase;
     padding: 5px 20px 5px;
@@ -92,30 +145,37 @@ html {
 }
 
 .header__aside {
+    /* position: relative;
+    top: 10vh; */
+    grid-column: 6;
+    grid-row: span 5;
+    background-color: #335b66;
     position: relative;
-    top: 10vh;
 }
 
-.aside__shopping-cart {
+.aside__shopping-cart-icon {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    grid-column-start: 5;
     border-color: black;
+    top: 15px;
+    right: 15px;
     height: 20px;
     width: auto;
-    
+    z-index: 15;
 }
 
 .aside__list {
     list-style-type: none;
-    position: absolute;
     font-size: 20px;
-    left: 25px;
-    top: 20px;
+    position: absolute;
+    left: 5px;
+    top: 30%; 
     padding: 10px 15px 10px;
-    background-color: #335b66;
+    background-color: #294a53;
     border-color: burlywood;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .aside__list > li {
@@ -166,6 +226,58 @@ button:disabled {
 .main > * {
     min-height: 100vh;
 }
+
+.main__section-1 {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.section__title {
+    top: 30px;
+    font-family: "Montserrat", sans-serif !important;
+    color: #335b66;
+}
+
+.main__section-3 {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.section__article-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.section__article-list > article {
+    width: auto;
+}
+
+.section__without-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.section__image {
+    grid-column: 1;
+    grid-row: span 2;
+}
+
+.section__content {
+    grid-column-start: 2;
+    grid-column: span 2;
+}
+
+
 
 .footer {
     margin-top: 15px;
